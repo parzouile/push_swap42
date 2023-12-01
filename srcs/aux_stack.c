@@ -6,7 +6,7 @@
 /*   By: aschmitt <aschmitt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 19:09:34 by aschmitt          #+#    #+#             */
-/*   Updated: 2023/12/01 19:18:53 by aschmitt         ###   ########.fr       */
+/*   Updated: 2023/12/01 19:44:33 by aschmitt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,19 @@ void	update_index(t_list **stack)
 		tmp->index = ++i;
 		tmp = tmp->next;
 	}
+}
+
+t_list	*find_less_cost(t_list *stack)
+{
+	t_list	*less_cost;
+
+	less_cost = stack;
+	stack = stack->next;
+	while (stack)
+	{
+		if (stack->cost < less_cost->cost)
+			less_cost = stack;
+		stack = stack->next;
+	}
+	return (less_cost);
 }

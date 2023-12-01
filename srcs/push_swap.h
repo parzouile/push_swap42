@@ -6,7 +6,7 @@
 /*   By: aschmitt <aschmitt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 18:56:19 by aschmitt          #+#    #+#             */
-/*   Updated: 2023/12/01 19:26:34 by aschmitt         ###   ########.fr       */
+/*   Updated: 2023/12/01 19:57:33 by aschmitt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,19 @@ typedef struct s_list
 int		check_sorted(t_list *stack);
 int		len_stack(t_list *stack);
 void	update_index(t_list **stack);
+t_list	*find_max(t_list *a);
+t_list	*find_min(t_list *a);
+void	little_sort(t_list **a);
+void	find_target_a(t_list **a, t_list *b);
+void	find_target_b(t_list **a, t_list *b);
+void	init_cost(t_list *actual, t_list *other);
+t_list	*find_less_cost(t_list *stack);
+void	rotate_all(t_list **a, t_list **b, t_list *node);
+void	reverse_rotate_all(t_list **a, t_list **b, t_list *node);
+void	prepare_a(t_list **a, t_list *node, long size_a);
+void	prepare_b(t_list **a, t_list *node, long size_a);
+void	prepare_push_a(t_list **a, t_list **b, t_list *node);
+void	prepare_push_b(t_list **a, t_list **b, t_list *node);
 
 //different rotation
 void	swap_a(t_list **a);

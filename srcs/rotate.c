@@ -6,7 +6,7 @@
 /*   By: aschmitt <aschmitt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 19:16:50 by aschmitt          #+#    #+#             */
-/*   Updated: 2023/12/01 19:20:52 by aschmitt         ###   ########.fr       */
+/*   Updated: 2023/12/01 19:29:08 by aschmitt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,18 @@ static void	rotate(t_list **stack)
 void	rotate_a(t_list **a)
 {
 	rotate(a);
-	printf("ra\n");
+	ft_printf("ra\n");
 }
 
 void	rotate_b(t_list **b)
 {
 	rotate(b);
-	printf("rb\n");
+	ft_printf("rb\n");
 }
 
 void	rotate_ab(t_list **a, t_list **b)
 {
 	rotate(a);
 	rotate(b);
-	printf("rr\n");
+	ft_printf("rr\n");
 }

@@ -1,43 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   prepare_push_b.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aschmitt <aschmitt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/01 19:19:35 by aschmitt          #+#    #+#             */
-/*   Updated: 2023/12/01 19:28:45 by aschmitt         ###   ########.fr       */
+/*   Created: 2023/12/01 19:56:29 by aschmitt          #+#    #+#             */
+/*   Updated: 2023/12/01 19:56:36 by aschmitt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	push(t_list **a, t_list **b)
+void	prepare_push_b(t_list **a, t_list **b, t_list *node)
 {
-	t_list	*tmp;
+	long	size_a;
+	long	size_b;
 
-	tmp = *b;
-	*b = (*b)->next;
-	tmp->next = *a;
-	*a = tmp;
-	update_index(a);
-	update_index(b);
-}
-
-void	push_a(t_list **a, t_list **b)
-{
-	if (b != NULL)
-	{
-		push(a, b);
-		ft_printf("pa\n");
-	}
-}
-
-void	push_b(t_list **a, t_list **b)
-{
-	if (a != NULL)
-	{
-		push(b, a);
-		ft_printf("pb\n");
-	}
+	size_a = len_stack(*a);
+	size_b = len_stack(*b);
+	if (node->index <= (size_b / 2) && node->target->index <= (size_a / 2))
+		rotate_all(b, a, node);
+	else if (node->index > (size_b / 2) && node->target->index > (size_a / 2))
+		reverse_rotate_all(b, a, node);
+	prepare_a(b, node, size_b);
+	prepare_b(a, node, size_a);
+	push_a(a, b);
 }
