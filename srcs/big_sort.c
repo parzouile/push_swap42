@@ -6,7 +6,7 @@
 /*   By: aschmitt <aschmitt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 19:32:59 by aschmitt          #+#    #+#             */
-/*   Updated: 2023/12/01 19:45:41 by aschmitt         ###   ########.fr       */
+/*   Updated: 2023/12/05 10:42:31 by aschmitt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,29 +25,27 @@ static void	finish_sort(t_list **a)
 			reverse_rotate_a(a);
 }
 
-void	big_sort(t_list **a)
+void	big_sort(t_list **a, t_list **b)
 {
-	t_list	*b;
 	int		size;
 
-	b = NULL;
 	size = len_stack(*a);
-	push_b(a, &b);
+	push_b(a, b);
 	if (--size > 3 && check_sorted(*a) == 0)
-		push_b(a, &b);
+		push_b(a, b);
 	while (--size > 3 && check_sorted(*a) == 0)
 	{
-		find_target_a(a, b);
-		init_cost(*a, b);
-		prepare_push_a(a, &b, find_less_cost(*a));
+		find_target_a(a, *b);
+		init_cost(*a, *b);
+		prepare_push_a(a, b);
 	}
 	if (check_sorted(*a) == 0)
 		little_sort(a);
-	while (b)
+	while (*b)
 	{
-		find_target_b(&b, *a);
-		init_cost(b, *a);
-		prepare_push_b(a, &b, find_less_cost(b));
+		find_target_b(b, *a);
+		init_cost(*b, *a);
+		prepare_push_b(a, b);
 	}
 	finish_sort(a);
 }

@@ -6,7 +6,7 @@
 /*   By: aschmitt <aschmitt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 19:43:05 by aschmitt          #+#    #+#             */
-/*   Updated: 2023/12/01 19:59:05 by aschmitt         ###   ########.fr       */
+/*   Updated: 2023/12/04 13:26:40 by aschmitt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,13 @@ void	prepare_b(t_list **a, t_list *node, long size_a)
 			reverse_rotate_b(a);
 }
 
-void	prepare_push_a(t_list **a, t_list **b, t_list *node)
+void	prepare_push_a(t_list **a, t_list **b)
 {
 	long	size_a;
 	long	size_b;
+	t_list	*node;
 
+	node = find_less_cost(*a);
 	size_a = len_stack(*a);
 	size_b = len_stack(*b);
 	if (node->index <= (size_a / 2) && node->target->index <= (size_b / 2))

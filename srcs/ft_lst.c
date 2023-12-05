@@ -1,16 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
+/*   ft_lst.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aschmitt <aschmitt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/06 18:49:47 by aschmitt          #+#    #+#             */
-/*   Updated: 2023/11/14 17:30:37 by aschmitt         ###   ########.fr       */
+/*   Created: 2023/12/04 12:18:54 by aschmitt          #+#    #+#             */
+/*   Updated: 2023/12/04 12:27:06 by aschmitt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
+
+t_list	*ft_lstlast(t_list *lst)
+{
+	while (lst != NULL && lst->next != NULL)
+		lst = lst->next;
+	return (lst);
+}
+
+t_list	*ft_lstnew(long content)
+{
+	t_list	*res;
+
+	res = malloc(sizeof(t_list));
+	if (!res)
+		return (NULL);
+	res->content = content;
+	res->next = NULL;
+	return (res);
+}
+
+void	ft_lstclear(t_list **lst)
+{
+	if (*lst == NULL)
+		return ;
+	if ((*lst)->next != NULL)
+		ft_lstclear((&(*lst)->next));
+	free(*lst);
+	*lst = NULL;
+}
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
