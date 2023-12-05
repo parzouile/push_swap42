@@ -1,43 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aschmitt <aschmitt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/01 19:16:50 by aschmitt          #+#    #+#             */
-/*   Updated: 2023/12/05 10:55:49 by aschmitt         ###   ########.fr       */
+/*   Created: 2023/12/05 10:53:43 by aschmitt          #+#    #+#             */
+/*   Updated: 2023/12/05 10:54:41 by aschmitt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	rotate(t_list **stack)
+int	ft_strlen(const char *s)
 {
-	t_list	*tmp;
+	int	i;
 
-	tmp = *stack;
-	*stack = (*stack)->next;
-	tmp->next = NULL;
-	ft_lstadd_back(stack, tmp);
-	update_index(stack);
+	i = 0;
+	while (s[i])
+		i ++;
+	return (i);
 }
 
-void	rotate_a(t_list **a)
+void	ft_putstr(const char *str)
 {
-	rotate(a);
-	ft_putstr("ra\n");
-}
-
-void	rotate_b(t_list **b)
-{
-	rotate(b);
-	ft_putstr("rb\n");
-}
-
-void	rotate_ab(t_list **a, t_list **b)
-{
-	rotate(a);
-	rotate(b);
-	ft_putstr("rr\n");
+    write(1, str, ft_strlen(str));
 }

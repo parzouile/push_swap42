@@ -6,7 +6,7 @@
 /*   By: aschmitt <aschmitt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 18:56:19 by aschmitt          #+#    #+#             */
-/*   Updated: 2023/12/05 10:40:50 by aschmitt         ###   ########.fr       */
+/*   Updated: 2023/12/05 10:58:08 by aschmitt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <stdio.h>
 # include <stdlib.h>
+# include <unistd.h>
+
 
 typedef struct s_list
 {
@@ -62,5 +64,6 @@ void	ft_lstclear(t_list **lst);
 t_list	*ft_lstnew(long content);
 t_list	*ft_lstlast(t_list *lst);
 void    print_stack(t_list *a);
+void	ft_putstr(const char *str);
 
 #endif

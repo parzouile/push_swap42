@@ -6,7 +6,7 @@
 /*   By: aschmitt <aschmitt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 18:51:41 by aschmitt          #+#    #+#             */
-/*   Updated: 2023/12/05 10:34:06 by aschmitt         ###   ########.fr       */
+/*   Updated: 2023/12/05 10:55:24 by aschmitt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ int	main(int argc, char **argv)
 		a = create_list(argv + 1);
 	if (a == NULL)
 	{
-		printf("Error\n");
+		ft_putstr("Error\n");
 		return (1);
 	}
 	if (!check_sorted(a))

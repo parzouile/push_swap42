@@ -6,7 +6,7 @@
 /*   By: aschmitt <aschmitt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 12:17:18 by aschmitt          #+#    #+#             */
-/*   Updated: 2023/12/04 12:42:28 by aschmitt         ###   ########.fr       */
+/*   Updated: 2023/12/05 10:58:17 by aschmitt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,16 +99,4 @@ char	**ft_split(char const *s, char c)
 	result[0] = 0;
 	result = ft_tab(result, s, c);
 	return (result);
-}
-
-void    print_stack(t_list *a)
-{
-	while (a != NULL)
-	{
-		if (a->target != NULL)
-			printf("node = %ld et index = %ld et target = %ld\n", a->content, a->index, a->target->content);
-		else
-			printf("node = %ld et index = %ld\n", a->content, a->index);
-		a = a->next;
-	}
 }
