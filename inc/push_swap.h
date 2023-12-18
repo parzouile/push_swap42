@@ -6,7 +6,7 @@
 /*   By: aschmitt <aschmitt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 18:56:19 by aschmitt          #+#    #+#             */
-/*   Updated: 2023/12/05 10:58:08 by aschmitt         ###   ########.fr       */
+/*   Updated: 2023/12/18 14:51:28 by aschmitt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-
 
 typedef struct s_list
 {
@@ -33,7 +32,7 @@ void	update_index(t_list **stack);
 t_list	*find_max(t_list *a);
 t_list	*find_min(t_list *a);
 void	little_sort(t_list **a);
-void	big_sort(t_list **a, t_list **b);
+void	big_sort(t_list **a);
 void	find_target_a(t_list **a, t_list *b);
 void	find_target_b(t_list **a, t_list *b);
 void	init_cost(t_list *actual, t_list *other);
@@ -63,7 +62,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstclear(t_list **lst);
 t_list	*ft_lstnew(long content);
 t_list	*ft_lstlast(t_list *lst);
-void    print_stack(t_list *a);
+void	print_stack(t_list *a);
 void	ft_putstr(const char *str);
 
 #endif

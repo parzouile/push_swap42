@@ -6,7 +6,7 @@
 /*   By: aschmitt <aschmitt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 10:53:43 by aschmitt          #+#    #+#             */
-/*   Updated: 2023/12/05 10:54:41 by aschmitt         ###   ########.fr       */
+/*   Updated: 2023/12/18 14:49:04 by aschmitt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,5 @@ int	ft_strlen(const char *s)
 
 void	ft_putstr(const char *str)
 {
-    write(1, str, ft_strlen(str));
+	write(1, str, ft_strlen(str));
 }
